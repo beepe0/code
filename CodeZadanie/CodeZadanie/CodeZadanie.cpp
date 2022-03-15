@@ -1,30 +1,35 @@
-﻿#include <iostream>
+#include <iostream>
+#include <limits>
 using namespace std;
+
+
+
+
+
 int main()
 {
-    int countN;
-    cin >> countN;
-
-    int i = 0;
-
-    while (i < countN)
+    int arbuz;
+    int temp;
+    int lp = 0;
+    int countl;
+    int nextl = 2;
+    cout << "Podaj ile chcesz wygenerować liczb: ";
+    cin >> arbuz;
+    
+    while(lp < arbuz)
     {
-        int miss = 0;
-        int curr = 2;
-        int i = 2;
-        for (;;)
+        for(int d = 2; d < nextl-1; d++)
         {
-            i++;
-            if (curr % i == 0)
+            if(nextl % d == 1)
             {
-                miss++;
-                if (miss < 3) break;
+                countl++;
+                //cout << " " << nextl;
             }
             
         }
-        cout << curr;
-        curr = curr + 1;
-        i++;
+        if(countl > 2 || countl == 0)cout << " " << nextl;
+        nextl++;
+        lp++;
     }
-
+    
 }
