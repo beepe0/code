@@ -1,27 +1,41 @@
 #include <iostream>
-//#include <chrono>
-//#include <unistd.h>
+#include <chrono>
+#include <unistd.h>
 using namespace std;
-
+void nww(int* a, int* b);
+void nwd(int* a, int* b);
 int main()
 {
-    int countTime;
-    int lp = 0;
-    int countl = 0;
-    int nextl = 2;
-    cout << "Podaj ile chcesz wygenerować liczb: ";
-    cin >> countTime; //1 krok
-    //auto start = chrono::steady_clock::now();
-    while(lp < countTime) //2 krok
-    {
-        for(int d = 2; d <= nextl - 1; d++) // 3 krok
-                    // 4 krok  // 5 krok
-            if(nextl % d == 0){countl++;}
-            // 6 krok        // 7 krok       // 8 krok
-        if(countl == 0){ cout << " " << nextl; lp++;}
-        nextl++; // 9 krok
-        countl = 0; // 10 krok
-    }
-    //auto end = chrono::steady_clock::now();
-    //cout << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " mill";
+    short tryb = 0;
+    int a,b;
+    void (*nwwnwd[])(int*, int*) = { nww, nwd };
+    cout << "Wybierz NWW [0] czy NWD [1]: ";
+    cin >> tryb;
+    tryb = ((tryb == 0) || (tryb == 1))? tryb : 0;
+    cout << "Tryb: " << tryb << endl;
+    cout << "Pierwsza liczba: "; 
+    cin >> a;
+    cout << "Druga liczba: "; 
+    cin >> b;
+    auto start = chrono::steady_clock::now();
+    (*nwwnwd[tryb])(&a, &b); 
+
+    auto end = chrono::steady_clock::now();
+    cout << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " mill";
+    return 0;
+}
+
+void nww(int* a, int* b)
+{
+    while(*a != *b) 
+        if(*a < *b) *b = *b - *a; else *a = *a - *b;
+    cout << "Najwiekszy wspolny dzielnik: " << *a << endl;
+}
+void nwd(int* a, int* b)
+{
+    int iloczyn = ((*a) * (*b));
+    while(*a != *b)
+        if(*a < *b) *b = *b - *a; else *a = *a - *b;
+    cout << "Najmniejsza wspolna wielokrotnosc: " << (iloczyn / *a) << endl;
+    
 }
