@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <chrono>
+#include <unistd.h>
 using namespace std;
 
 int main()
@@ -17,26 +18,22 @@ int main()
         'z'
     };
     short sizeOfTab = sizeof(tab) / sizeof(tab[0]);
-    cin >> word;
+    cout << "Podaj slowo: ";
+    getline(cin, word);
+    cout << "Podaj klucz: ";
     cin >> key;
+    auto start = chrono::steady_clock::now();
     key = (key > sizeOfTab || key < -sizeOfTab ) ? 0 : key;
-    
     for(int i = 0; i < word.size(); i++)
-    {
         for(int k = 0; k < sizeOfTab; k++ )
-        {
             if(word[i] == tab[k])
             {
                 if((k + key) > 25) answer += tab[(k + key) - sizeOfTab ];
                 else if((k + key) < 0) answer += tab[(k + key) + sizeOfTab];
                 else answer += tab[(k + key)];
-                    
             }
-        }
-    }
-    
-    cout << answer;
-    
-
+    cout << "Wynik: "<< answer << endl;
+    auto end = chrono::steady_clock::now();
+    cout << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " mill";
     return 0;
 }
