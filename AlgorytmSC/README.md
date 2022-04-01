@@ -1,4 +1,4 @@
-# Algorytm NWW & NWD
+# Algorytm Szyfr Cezara
 
 # Wynik
 -
