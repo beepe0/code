@@ -37,12 +37,10 @@ int main()
     cin >> key;
     auto start = chrono::steady_clock::now();
     key = (key > sizeOfTab || key < -sizeOfTab ) ? 0 : key;
+    
     for(int i = 0; i < word.size(); i++)
-        //for(int k = 0; k < sizeOfTab; k++ )
-            if(isupper(word[i]))
-            {
-            	hugeL(word, &answer, key, i);
-            }else smallL(word, &answer, key, i);
+        if(isupper(word[i])) hugeL(word, &answer, key, i);
+        else smallL(word, &answer, key, i);
 
     cout << "Wynik: "<< answer << endl;
     auto end = chrono::steady_clock::now();
