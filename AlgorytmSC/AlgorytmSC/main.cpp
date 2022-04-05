@@ -15,7 +15,7 @@ char tab[] =
         'u','v','w','x','y',
         'z'
     };
-    char tabUpper[] =
+char tabUpper[] =
     {
         'A','B','B','D','E',
         'F','G','H','I','J',
