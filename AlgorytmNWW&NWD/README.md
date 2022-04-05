@@ -1,7 +1,7 @@
 # Algorytm NWW & NWD
 
 # Wniosek 
-Ta programma ma 10 kroków:
+
 + 1 krok - stwożyłem 3 zmiany "tryb,a,b";
 + 2 krok - stwożyłem masyw funkcyj;
 + 3 krok - wpisz "tryb,a,b";
