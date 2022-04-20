@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 bool isEquals(string word, string nextWord);
 int main()
