@@ -21,7 +21,7 @@ int main()
     (*nwwnwd[tryb])(&a, &b); 
 
     auto end = chrono::steady_clock::now();
-    cout << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " mill";
+    cout << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " mill"<< endl;
     return 0;
 }
 

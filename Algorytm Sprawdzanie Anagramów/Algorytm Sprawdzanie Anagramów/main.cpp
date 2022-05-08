@@ -8,8 +8,8 @@ int main()
     std::cin >> word;
     std::cout << "Drugie słowo: " << std::endl;
     std::cin >> nextWord;
-    if(isEquals(word, nextWord)) std::cout << "To slowo jest jednakowe: " << word << " == " << nextWord;
-    else std::cout << "To slowo nie jest jednakowe: " << word << " != " << nextWord;
+    if(isEquals(word, nextWord)) std::cout << "To slowo jest jednakowe: " << word << " == " << nextWord << std::endl;
+    else std::cout << "To slowo nie jest jednakowe: " << word << " != " << nextWord << std::endl;
     return 0;
 }
 

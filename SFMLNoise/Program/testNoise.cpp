@@ -37,7 +37,7 @@ int main()
     noise = new float*[_size.x];
     for(int x = 0; x < _size.x; x++) noise[x] = new float[_size.y];
     GenerateNoise(noise, _size, 50);//octaves 1 .. ~100;
-
+    
     sf::RenderWindow window(sf::VideoMode(_size.x, _size.y), "Window");
     sf::Vertex point(sf::Vector2f(10, 10), sf::Color::Green);
     
@@ -48,7 +48,7 @@ int main()
     while (window.isOpen())
     {
         sf::Time els = clock.restart();
-        std::cout << "Delta:" << els.asSeconds() << std::endl;
+        //std::cout << "Delta:" << els.asSeconds() << std::endl;
         
         time += els.asSeconds();
         sf::Event event;
@@ -59,7 +59,7 @@ int main()
             else if(event.type == sf::Event::MouseWheelMoved)
                 sizeUp += float(event.mouseWheel.delta)/200;
         }
-        if(time > 0.1f)
+        if(time > 0.5f)
         {
             time = 0;
             window.clear();

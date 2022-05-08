@@ -18,7 +18,7 @@ int main()
                     // 4 krok  // 5 krok
             if(nextl % d == 0){countl++;}
             // 6 krok        // 7 krok       // 8 krok
-        if(countl == 0){ cout << " " << nextl; lp++;}
+        if(countl == 0){ cout << " " << nextl << endl; lp++;}
         nextl++; // 9 krok
         countl = 0; // 10 krok
     }
