@@ -1,2 +1,0 @@
-Main-Class: chat.Client
-Class-Path: ./lib/lanterna-3.1.1.jar
