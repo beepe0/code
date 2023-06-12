@@ -7,7 +7,7 @@ declare tools=(
     "Dodać do sieci zakres adresów" 
     "Dodać do sieci bramę domyślną" 
     "Dodać do sieci wyjątek" 
-    "Dodać do wyjątka MAC (identyfikator)" 
+    "Dodać do wyjątka MAC" 
     "Dodać do wyjątka rezerwacji adresu" 
 )
 
@@ -151,7 +151,7 @@ function dhcp_add_subnet {
 
     app_verify $dhcp_link_to_dhcpd_conf
     
-    echo "Wpisz address sieci:"
+    echo "Wpisz adres sieci:"
     local subnet=$(app_print)
     echo "Wpisz maskę sieci:"
     local netmask=$(app_print)
@@ -205,7 +205,7 @@ function dhcp_add_range {
 
     app_verify $dhcp_link_to_dhcpd_conf
 
-    echo "Wpisz address sieci dla której chcesz dodać zakres adresów:"
+    echo "Wpisz adres sieci dla której chcesz dodać zakres adresów:"
     local address=$(app_print)
     echo "Wpisz początkowy address:"
     local start_address=$(app_print)
@@ -241,9 +241,9 @@ function dhcp_add_gate {
 
     app_verify $dhcp_link_to_dhcpd_conf
 
-    echo "Wpisz address sieci dla której chcesz dodać bramę domyślną:"
+    echo "Wpisz adres sieci dla której chcesz dodać bramę domyślną:"
     local address=$(app_print)
-    echo "Wpisz address:"
+    echo "Wpisz adres:"
     local gate_address=$(app_print)
     
     if [[ -z "$address" || -z "$gate_address" ]]; then
@@ -275,7 +275,7 @@ function dhcp_add_exception {
 
     app_verify $dhcp_link_to_dhcpd_conf
 
-    echo "Wpisz address sieci dla której chcesz dodać wyjątek:"
+    echo "Wpisz adres sieci dla której chcesz dodać wyjątek:"
     local address=$(app_print)
     echo "Wpisz nazwę wyjątka:"
     local name=$(app_print)
@@ -309,7 +309,7 @@ function dhcp_add_mac {
 
     app_verify $dhcp_link_to_dhcpd_conf
 
-    echo "Wpisz address sieci w której się znajduje wyjątek: "
+    echo "Wpisz adres sieci w której się znajduje wyjątek: "
     local address=$(app_print)
     echo "Wpisz nazwę wyjątka:"
     local name=$(app_print)
@@ -345,11 +345,11 @@ function dhcp_add_fixed_address {
 
     app_verify $dhcp_link_to_dhcpd_conf
 
-    echo "Wpisz address sieci w której się znajduje wyjątek: "
+    echo "Wpisz adres sieci w której się znajduje wyjątek: "
     local address=$(app_print)
     echo "Wpisz nazwę wyjątka: "
     local name=$(app_print)
-    echo "Wpisz address: "
+    echo "Wpisz adres: "
     local fixed_address=$(app_print)
     
     if [[ -z "$address" || -z "$name" || -z "$fixed_address" ]]; then
