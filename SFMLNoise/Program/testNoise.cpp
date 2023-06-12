@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cmath>
+
 class PointsI
 {
     public:
@@ -13,18 +14,19 @@ class PointsI
         y = _y;
     }
 };
-PointsI neibours[] = 
-    {
-        {0,0},
-        {1,0},
-        {-1,0},
-        {0,1},
-        {0,-1},
-        {1,1},
-        {1,-1},
-        {-1,-1},
-        {-1,1}
-    };
+
+PointsI neighbours[] = 
+{
+    {0,0},
+    {1,0},
+    {-1,0},
+    {0,1},
+    {0,-1},
+    {1,1},
+    {1,-1},
+    {-1,-1},
+    {-1,1}
+};
 
 void GenerateNoise(float **n, PointsI size, int octaves);
 
@@ -145,7 +147,7 @@ void GenerateNoise(float **n, PointsI size, int octaves)
 
     float equal = 0;
     int curr = 0;
-    int length = (sizeof(neibours) / sizeof(neibours[0]));
+    int length = (sizeof(neighbours) / sizeof(neighbours[0]));
 
     for(int o = 0; o < octaves; o++)
     for(int x = 0; x < size.x; x++)
@@ -154,12 +156,12 @@ void GenerateNoise(float **n, PointsI size, int octaves)
         {
             for(int i = 0; i < length; i++)
             {
-                PointsI p = neibours[i];
-                PointsI _neibours = {(x + p.x), (y + p.y)};
-                if((_neibours.x > 0 && _neibours.y > 0) && (_neibours.x < size.x && _neibours.y < size.y))
+                PointsI p = neighbours[i];
+                PointsI _neighbours = {(x + p.x), (y + p.y)};
+                if((_neighbours.x > 0 && _neighbours.y > 0) && (_neighbours.x < size.x && _neighbours.y < size.y))
                 {
                     curr++;
-                    equal += n[_neibours.x][_neibours.y];
+                    equal += n[_neighbours.x][_neighbours.y];
                 }
             }
             n[x][y] = float(equal / curr);
