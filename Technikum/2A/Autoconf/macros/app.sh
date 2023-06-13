@@ -1,8 +1,5 @@
-is_app_closed=false
-
 declare services=( "dhcp" )
 declare entry_points=( "app_main" "dhcp_main" )
-declare c_entry_points=( "./macros/so/parser.so" )
 
 function app_main {
     app_list_of_services
